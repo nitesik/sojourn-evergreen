@@ -32,7 +32,7 @@ export default function HomePageComponent() {
 
   return (
     <main>
-      <div className="bg-bhutan bg-center h-[100vh] xl:h-[120vh] relative bg-no-repeat bg-cover flex justify-center">
+      <div className="bg-bhutan bg-left xl:bg-center h-[100vh] xl:h-[120vh] relative bg-no-repeat bg-cover flex justify-center">
         <div className="w-full xl:w-[1200px] 2xl:w-[1500px] text-white px-3 xl:px-0">
           <div className="mt-5 font-jolly flex justify-between items-center text-primary">
             <h1 className="text-5xl  font-bold hover:scale-105 transition-transform ease-in-out cursor-pointer">
