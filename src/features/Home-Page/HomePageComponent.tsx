@@ -19,19 +19,26 @@ import {
 } from "lucide-react";
 import { icons } from "@/utils/icons";
 import { CustomImage } from "@/component";
+import { useState } from "react";
 
 // Evergreen Sojourn
 
 export default function HomePageComponent() {
+  const [currentFAQ, setCurrentFAQ] = useState<number | null>(null);
+
+  function handleForm(event: React.FormEvent) {
+    event.preventDefault();
+  }
+
   return (
     <main>
-      <div className="bg-bhutan bg-center h-[120vh] relative bg-no-repeat bg-cover flex justify-center">
-        <div className="xl:w-[1200px] 2xl:w-[1500px] text-white">
+      <div className="bg-bhutan bg-center h-[100vh] xl:h-[120vh] relative bg-no-repeat bg-cover flex justify-center">
+        <div className="w-full xl:w-[1200px] 2xl:w-[1500px] text-white px-3 xl:px-0">
           <div className="mt-5 font-jolly flex justify-between items-center text-primary">
             <h1 className="text-5xl  font-bold hover:scale-105 transition-transform ease-in-out cursor-pointer">
               Evergreen Sojourn
             </h1>
-            <span className="flex gap-2 text-3xl">
+            <span className="hidden xl:flex gap-2 text-3xl">
               {siteConfig.getHeaders().map((item, index) => (
                 <p
                   key={index}
@@ -41,22 +48,29 @@ export default function HomePageComponent() {
                 </p>
               ))}
             </span>
-            <span className="flex gap-3 hover:[&>*]:scale-110 [&>*]:transition-all [&>*]:ease-in-out [&>*]:cursor-pointer">
+            <span className="hidden xl:flex gap-3 hover:[&>*]:scale-110 [&>*]:transition-all [&>*]:ease-in-out [&>*]:cursor-pointer">
               <Facebook className="" />
               <Instagram />
             </span>
           </div>
 
-          <div className="mt-[100px] z-10 relative font-jolly flex flex-col items-end">
-            <h1 className="text-8xl font-extrabold text-end text-primary ">
+          <div className="mt-[100px] z-10 relative font-jolly flex flex-col items-center gap-6 xl:gap-0 xl:items-end">
+            <h1 className="text-5xl md:text-6xl xl:text-8xl font-extrabold text-center xl:text-end text-primary ">
               Journey to All Corners of <br /> Bhutan.
             </h1>
-            <p className="text-3xl w-[600px] text-end my-4">
+            <p className="text-3xl w-full max-w-[600px] xl:w-[600px] text-center xl:text-end my-4">
               Discover the enchantments of Bhutan with your tailor-made dream
               journey. Our tours encompass a spectrum of destinations tailored
               to suit a myriad of interests.
             </p>
-            <button className="text-3xl border-2 border-primary rounded text-primary px-7 py-3 hover:bg-primary hover:text-white transition-colors">
+            <button
+              onClick={() =>
+                document
+                  .getElementById("book")
+                  ?.scrollIntoView({ behavior: "smooth", block: "start" })
+              }
+              className="text-3xl border-2 border-primary rounded text-primary px-7 py-3 hover:bg-primary hover:text-white transition-colors"
+            >
               Book Now
             </button>
           </div>
@@ -71,29 +85,35 @@ export default function HomePageComponent() {
       </div>
 
       <div className="flex justify-center pt-5">
-        <div className="xl:w-[1200px] 2xl:w-[1500px] text-white">
-          <div className="grid grid-cols-2 place-content-between">
+        <div className="w-full xl:w-[1200px] 2xl:w-[1500px] text-white px-3 xl:px-0">
+          <div className="grid grid-cols-1 xl:grid-cols-2 place-content-between">
             <div className="flex flex-col gap-10">
               <span className="flex justify-between flex-shrink-0">
                 <div className="text-center flex flex-col items-center gap-2">
                   <Calendar width={45} height={45} className="text-secondary" />
-                  <h3 className="text-lg font-bold">Years of Experience</h3>
-                  <h2 className="text-3xl font-extrabold">10</h2>
+                  <h3 className="text-base xl:text-lg font-bold">
+                    Years of Experience
+                  </h3>
+                  <h2 className="text-xl xl:text-3xl font-extrabold">10</h2>
                 </div>
                 <hr className="border-2 border-secondary h-full" />
                 <div className="text-center flex flex-col items-center gap-2">
                   <Smile width={45} height={45} className="text-secondary" />
-                  <h3 className="text-lg font-bold">Years of Experience</h3>
-                  <h2 className="text-3xl font-extrabold">10</h2>
+                  <h3 className="text-base xl:text-lg font-bold">
+                    Years of Experience
+                  </h3>
+                  <h2 className="text-xl xl:text-3xl font-extrabold">10</h2>
                 </div>
                 <hr className="border-2 border-secondary h-full" />
                 <div className="text-center flex flex-col items-center gap-2">
                   <Globe width={45} height={45} className="text-secondary" />
-                  <h3 className="text-lg font-bold">Years of Experience</h3>
-                  <h2 className="text-3xl font-extrabold">10</h2>
+                  <h3 className="text-base xl:text-lg font-bold">
+                    Years of Experience
+                  </h3>
+                  <h2 className="text-xl xl:text-3xl font-extrabold">10</h2>
                 </div>
               </span>
-              <p className="text-lg">
+              <p className="text-lg text-center xl:text-start">
                 Explore a myriad of destinations with our tours, each designed
                 to accommodate diverse interests. Whether you crave sun-kissed
                 beaches with azure waters, awe-inspiring mountain vistas, serene
@@ -112,7 +132,7 @@ export default function HomePageComponent() {
                 </span>
               </div>
             </div>
-            <div className="rotate flex justify-end items-center [&>*]:rounded [&>*]:border-4 gap-2 pr-5">
+            <div className="rotate flex md:justify-center xl:justify-end mt-14 xl:mt-0 flex-col-reverse md:flex-row items-center [&>*]:rounded [&>*]:border-4 gap-2 pr-5">
               <Image
                 src={icons.bhutan_pic}
                 alt="pic"
@@ -140,15 +160,15 @@ export default function HomePageComponent() {
       </div>
 
       <div className="flex py-[150px]">
-        <div className="flex-1 flex justify-between items-center gap-14">
+        <div className="flex-1 flex flex-col xl:flex-row justify-between items-center gap-14 px-5 xl:px-0">
           <Image
             src={icons.office_pic}
             alt="office"
             height={100}
             width={100}
-            className="h-full w-[700px] flex-1 border-[7px] rounded-e border-l-0"
+            className="h-full w-[700px] flex-1 border-[7px] rounded xl:rounded-e xl:border-l-0"
           />
-          <div className="w-1/2  text-white text-base grid gap-3">
+          <div className="w-full xl:w-1/2 [&>p]:text-center xl:[&>p]:text-start text-white text-base grid gap-3">
             <h1 className="font-jolly text-5xl text-center">About Us</h1>
             <p>
               At our agency, we dedicate ourselves to curating distinctive and
@@ -188,9 +208,11 @@ export default function HomePageComponent() {
       </div>
 
       <div className="flex flex-col items-center">
-        <h1 className="font-jolly text-7xl text-white">DESTINATIONS</h1>
+        <h1 className="font-jolly text-5xl md:text-7xl text-white">
+          DESTINATIONS
+        </h1>
         <div className="my-[50px] w-full flex justify-center border-4 border-secondary border-l-0 border-r-0">
-          <div className="xl:w-[1200px] 2xl:w-[1500px] flex items-center justify-evenly font-white font-jolly text-4xl py-4 text-white hover:[&>span]:scale-125 [&>span]:cursor-pointer [&>span]:transition-transform">
+          <div className="w-full xl:w-[1200px] 2xl:w-[1500px] flex items-center justify-between px-5 md:px-0 md:justify-evenly font-white font-jolly text-4xl py-4 text-white hover:[&>span]:scale-125 [&>span]:cursor-pointer [&>span]:transition-transform">
             <span>Paro</span>
             <span>Thimphu</span>
             <span>Haa</span>
@@ -198,9 +220,9 @@ export default function HomePageComponent() {
             <span>Punakha</span>
           </div>
         </div>
-        <div className="xl:w-[1200px] 2xl:w-[1500px] grid customGrid pl-5">
+        <div className="xl:w-[1200px] 2xl:w-[1500px] grid customGrid px-5 md:px-0 md:pl-5">
           <div className="flex flex-col items-center text-white gap-3">
-            <h3 className="text-5xl text-primary font-jolly">
+            <h3 className="text-5xl text-primary font-jolly text-center md:text-start">
               Five reasons to visit Bhutan
             </h3>
             <div className="w-full mt-[70px]">
@@ -217,7 +239,7 @@ export default function HomePageComponent() {
                   <div className="h-5 w-5 rounded-full bg-primary absolute"></div>
                 </span>
                 <span className="grid place-content-center">
-                  <p className="text-xl">
+                  <p className="text-base md:text-xl">
                     <span className="text-primary">
                       Rich cultural heritage:
                     </span>{" "}
@@ -231,7 +253,7 @@ export default function HomePageComponent() {
 
               <div className="grid customSubGrid h-[300px]">
                 <span className="grid place-content-center">
-                  <p className="text-xl">
+                  <p className="text-base md:text-xl">
                     <span className="text-primary">
                       Rich cultural heritage:
                     </span>{" "}
@@ -267,7 +289,7 @@ export default function HomePageComponent() {
                   <div className="h-5 w-5 rounded-full bg-primary absolute"></div>
                 </span>
                 <span className="grid place-content-center">
-                  <p className="text-xl">
+                  <p className="text-base md:text-xl">
                     <span className="text-primary">
                       Rich cultural heritage:
                     </span>{" "}
@@ -281,7 +303,7 @@ export default function HomePageComponent() {
 
               <div className="grid customSubGrid h-[300px]">
                 <span className="grid place-content-center">
-                  <p className="text-xl">
+                  <p className="text-base md:text-xl">
                     <span className="text-primary">
                       Rich cultural heritage:
                     </span>{" "}
@@ -317,7 +339,7 @@ export default function HomePageComponent() {
                   <div className="h-5 w-5 rounded-full bg-primary absolute"></div>
                 </span>
                 <span className="grid place-content-center">
-                  <p className="text-xl">
+                  <p className="text-base md:text-xl">
                     <span className="text-primary">
                       Rich cultural heritage:
                     </span>{" "}
@@ -330,7 +352,14 @@ export default function HomePageComponent() {
               </div>
 
               <div className="flex justify-center mt-[50px]">
-                <button className="text-3xl border-2 border-primary rounded text-primary px-7 py-3 hover:bg-primary hover:text-white transition-colors">
+                <button
+                  onClick={() =>
+                    document
+                      .getElementById("book")
+                      ?.scrollIntoView({ behavior: "smooth", block: "start" })
+                  }
+                  className="text-3xl border-2 border-primary rounded text-primary px-7 py-3 hover:bg-primary hover:text-white transition-colors"
+                >
                   Book Now
                 </button>
               </div>
@@ -340,11 +369,13 @@ export default function HomePageComponent() {
         </div>
       </div>
 
-      <div className="flex justify-center pt-[150px]">
-        <div className="xl:w-[1200px] 2xl:w-[1500px] text-white">
-          <h1 className="text-center font-jolly text-9xl">Exclusive Tour</h1>
-          <div className="flex items-start [&>div]:w-1/2 mt-[125px] justify-between gap-14">
-            <div className="grid grid-cols-3 relative">
+      <div className="flex justify-center pt-[100px] xl:pt-[150px]">
+        <div className="w-full xl:w-[1200px] 2xl:w-[1500px] px-5 xl:px-0 text-white">
+          <h1 className="text-center font-jolly text-6xl xl:text-9xl">
+            Exclusive Tour
+          </h1>
+          <div className="flex items-center xl:items-start flex-col xl:flex-row xl:[&>div]:w-1/2 mt-[125px] xl:justify-between xl:gap-14">
+            <div className="grid grid-cols-3 gap-y-5 xl:gap-y-0 relative">
               <CustomImage src={icons.bhutan_pic} className="border-2 z-[8]" />
               <CustomImage
                 src={icons.bhutan_pic_2}
@@ -356,15 +387,15 @@ export default function HomePageComponent() {
               />
               <CustomImage
                 src={icons.bhutan_pic_2}
-                className="-translate-x-[100px] -translate-y-[70px] border-2 z-[5]"
+                className="xl:-translate-x-[100px] -translate-y-[70px] border-2 z-[5]"
               />
               <CustomImage
                 src={icons.bhutan_pic}
-                className="-translate-x-[120px] -translate-y-[70px] border-2 z-[6]"
+                className="xl:-translate-x-[120px] -translate-y-[70px] border-2 z-[6]"
               />
               <CustomImage
                 src={icons.bhutan_pic_3}
-                className="-translate-x-[120px] -translate-y-[70px] border-2 z-[7]"
+                className="xl:-translate-x-[120px] -translate-y-[70px] border-2 z-[7]"
               />
               <CustomImage
                 src={icons.bhutan_pic_3}
@@ -379,7 +410,7 @@ export default function HomePageComponent() {
                 className="border-2 z-[5] -translate-y-[120px]"
               />
             </div>
-            <div className="z-50 grid gap-5 text-xl">
+            <div className="z-50 grid gap-5 text-base xl:text-xl">
               <p className="">
                 At Exclusive Tours, we specialize in crafting bespoke travel
                 experiences that leave a lasting impression. Our commitment to
@@ -405,6 +436,162 @@ export default function HomePageComponent() {
                 </li>
               </ul>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex justify-center pt-[100px]">
+        <div className="w-full px-5 xl:px-0 xl:w-[1200px] 2xl:w-[1500px] flex flex-col items-center gap-7 text-black">
+          <h1 id="book" className="font-jolly text-6xl xl:text-8xl text-white">
+            Book a Tour
+          </h1>
+          <form
+            onSubmit={handleForm}
+            className="w-full xl:w-2/3 bg-white rounded px-7 py-10 grid gap-6"
+          >
+            <label className="flex flex-col gap-2">
+              <h3 className="text-lg xl:text-2xl font-bold">
+                Number of Travellers <span className="text-red-400">*</span>
+              </h3>
+              <input
+                type="number"
+                min={1}
+                required
+                className="bg-[#E5E5E5] p-3 border-2 rounded outline-none focus:border-secondary"
+              />
+            </label>
+            <label className="flex flex-col gap-2">
+              <h3 className="text-lg xl:text-2xl font-bold">
+                Adults <span className="text-red-400">*</span>
+              </h3>
+              <input
+                type="number"
+                min={1}
+                required
+                className="bg-[#E5E5E5] p-3 border-2 rounded outline-none focus:border-secondary"
+              />
+            </label>
+            <label className="flex flex-col gap-2">
+              <h3 className="text-lg xl:text-2xl font-bold">
+                Children (2-11 years old)
+              </h3>
+              <input
+                type="number"
+                min={1}
+                className="bg-[#E5E5E5] p-3 border-2 rounded outline-none focus:border-secondary"
+              />
+            </label>
+            <label className="flex flex-col gap-2">
+              <h3 className="text-lg xl:text-2xl font-bold">
+                Date of Arrival <span className="text-red-400">*</span>
+              </h3>
+              <input
+                type="date"
+                required
+                className="bg-[#E5E5E5] p-3 border-2 rounded outline-none focus:border-secondary"
+              />
+            </label>
+            <label className="flex flex-col gap-2">
+              <h3 className="text-lg xl:text-2xl font-bold">
+                Duration of your stay (in days){" "}
+                <span className="text-red-400">*</span>
+              </h3>
+              <input
+                type="number"
+                min={1}
+                required
+                className="bg-[#E5E5E5] p-3 border-2 rounded outline-none focus:border-secondary"
+              />
+            </label>
+            <h2 className="text-secondary xl:text-center text-xl xl:text-3xl font-bold">
+              Your Personal Informations
+            </h2>
+            <label className="flex flex-col gap-2">
+              <h3 className="text-lg xl:text-2xl font-bold">
+                Your Name <span className="text-red-400">*</span>
+              </h3>
+              <input
+                type="text"
+                required
+                className="bg-[#E5E5E5] p-3 border-2 rounded outline-none focus:border-secondary"
+              />
+            </label>
+            <label className="flex flex-col gap-2">
+              <h3 className="text-lg xl:text-2xl font-bold">
+                Your Email <span className="text-red-400">*</span>
+              </h3>
+              <input
+                type="email"
+                required
+                className="bg-[#E5E5E5] p-3 border-2 rounded outline-none focus:border-secondary"
+              />
+            </label>
+            <label className="flex flex-col gap-2">
+              <h3 className="text-lg xl:text-2xl font-bold">
+                Your Phone Number <span className="text-red-400">*</span>
+              </h3>
+              <input
+                type="tel"
+                required
+                className="bg-[#E5E5E5] p-3 border-2 rounded outline-none focus:border-secondary"
+              />
+            </label>
+            <label className="flex flex-col gap-2">
+              <h3 className="text-lg xl:text-2xl font-bold">
+                Your Nationality <span className="text-red-400">*</span>
+              </h3>
+              <input
+                type="text"
+                required
+                className="bg-[#E5E5E5] p-3 border-2 rounded outline-none focus:border-secondary"
+              />
+            </label>
+            <label className="flex flex-col gap-2">
+              <h3 className="text-lg xl:text-2xl font-bold">Your Trip Ideas</h3>
+              <p>
+                Tell us about your favourite activities and desired
+                destinations.
+              </p>
+              <textarea className="bg-[#E5E5E5] p-3 border-2 min-h-[100px] resize-y rounded outline-none focus:border-secondary" />
+            </label>
+            <button className="text-3xl border-2 hover:border-secondary hover:bg-white rounded hover:text-secondary px-7 py-3 bg-secondary text-white transition-colors">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div className="flex justify-center pt-[100px]">
+        <div className="w-full px-5 xl:px-0 xl:w-[1200px] 2xl:w-[1500px] flex flex-col items-center gap-14 text-white">
+          <h1 className="font-jolly text-6xl xl:text-8xl">FAQs</h1>
+          <div className="w-full xl:w-2/3 grid gap-3">
+            {siteConfig.getFAQs().map((faq, index) => (
+              <div
+                key={index}
+                onClick={() => {
+                  setCurrentFAQ(currentFAQ === index ? null : index);
+                }}
+                className={`${
+                  index !== 0 && "border-t-4 border-secondary pt-5"
+                } flex flex-col cursor-pointer flex-1 pb-5`}
+              >
+                <span className="flex justify-between">
+                  <h3 className="text-2xl ">{faq.question}</h3>
+                  <ChevronRight
+                    className={`${
+                      index === currentFAQ ? "rotate-90" : "rotate-0"
+                    } text-primary`}
+                  />
+                </span>
+                <span
+                  className={`overflow-hidden ${
+                    currentFAQ === index ? "h-[40px]" : "h-0"
+                  } origin-top`}
+                >
+                  <h5 className="text-lg mt-2">{faq.question}</h5>
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

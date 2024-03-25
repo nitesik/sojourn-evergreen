@@ -5,6 +5,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  transition: all 100ms ease-in-out;
+}
+
 :root {
   --background-color: #011d2e;
   --secondary-color: #87cefa;
@@ -49,12 +53,20 @@ body {
   /* box-shadow: 8px -8px black; */
 }
 
-.customGrid {
-  grid-template-columns: 3fr 1fr;
-}
-
 .customSubGrid {
   grid-template-columns: 4fr 1fr 4fr;
+}
+
+@media (max-width: 1279px) {
+  .customGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1280px) {
+  .customGrid {
+    grid-template-columns: 3fr 1fr;
+  }
 }
 
 @media (min-width: 1536px) {

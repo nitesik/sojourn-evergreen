@@ -20,7 +20,7 @@ export default function CustomImage({
       <Image
         src={src}
         alt="image"
-        className={`${childClassName} h-[200px] w-[200px] -rotate-45 scale-150 object-cover`}
+        className={`${childClassName} h-[100px] md:h-[200px] w-[100px] md:w-[200px] -rotate-45 scale-150 object-cover`}
       />
     </div>
   );
