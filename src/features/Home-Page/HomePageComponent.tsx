@@ -56,7 +56,7 @@ export default function HomePageComponent() {
 
           <div className="mt-[100px] z-10 relative font-jolly flex flex-col items-center gap-6 xl:gap-0 xl:items-end">
             <h1 className="text-5xl md:text-6xl xl:text-8xl font-extrabold text-center xl:text-end text-primary ">
-              Journey to All Corners of <br /> Bhutan.
+              Unveiling Bhutan&apos;s Evergreen <br /> Wonders
             </h1>
             <p className="text-3xl w-full max-w-[600px] xl:w-[600px] text-center xl:text-end my-4">
               Discover the enchantments of Bhutan with your tailor-made dream
