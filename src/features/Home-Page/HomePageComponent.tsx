@@ -75,9 +75,17 @@ export default function HomePageComponent() {
               className="inline xl:hidden z-50"
             >
               {isMenuOpen ? (
-                <X className="w-8 h-8" />
+                <X
+                  className={`w-8 h-8 transition-all duration-1000 ${
+                    isMenuOpen && "customOpen"
+                  }`}
+                />
               ) : (
-                <Menu className="w-8 h-8" />
+                <Menu
+                  className={`w-8 h-8 transition-all ${
+                    isMenuOpen || "customOpen"
+                  }`}
+                />
               )}
             </button>
             {isMenuOpen && (
