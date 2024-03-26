@@ -23,6 +23,7 @@ import { icons } from "@/utils/icons";
 import { CustomImage } from "@/component";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Head from "next/head";
 
 // Evergreen Sojourn
 
@@ -43,6 +44,9 @@ export default function HomePageComponent() {
 
   return (
     <main>
+      <Head>
+        <title>Evergreen Sojourn</title>
+      </Head>
       <div className="bg-bhutan bg-left xl:bg-center h-[100vh] xl:h-[120vh] relative bg-no-repeat bg-cover flex justify-center">
         <div className="w-full xl:w-[1200px] 2xl:w-[1500px] text-white px-3 xl:px-0 relative">
           <div className="mt-5 font-jolly flex justify-between items-center text-primary">

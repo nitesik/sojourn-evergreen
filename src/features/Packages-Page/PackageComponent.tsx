@@ -1,8 +1,12 @@
+import Head from "next/head";
 import Link from "next/link";
 
 export default function PackageComponent() {
   return (
     <main>
+      <Head>
+        <title>Evergreen Sojourn - Packages</title>
+      </Head>
       <div className="flex justify-center">
         <div className="w-full xl:w-[1200px] 2xl:w-[1500px] px-5 xl:px-0 mt-5 text-primary">
           <Link href="/" className="font-jolly text-5xl w-fit flex ">
