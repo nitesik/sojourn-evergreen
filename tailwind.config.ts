@@ -6,7 +6,9 @@ const config: Config = {
     extend: {
       colors: {
         primary: "#FFE500",
-        secondary: "#87CEFA",
+        // secondary: "#87CEFA",
+        secondary: "#8FE388",
+        main: "var(--background-color)",
       },
       fontFamily: {
         jolly: "Jolly Lodger",

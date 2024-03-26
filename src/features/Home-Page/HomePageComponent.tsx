@@ -11,47 +11,87 @@ import {
   Star,
   Crown,
   BadgeDollarSign,
-  ArrowRight,
   ChevronRight,
   ShieldCheck,
   Clock,
   Receipt,
+  Cross,
+  X,
+  Menu,
 } from "lucide-react";
 import { icons } from "@/utils/icons";
 import { CustomImage } from "@/component";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Link from "next/link";
 
 // Evergreen Sojourn
 
 export default function HomePageComponent() {
   const [currentFAQ, setCurrentFAQ] = useState<number | null>(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   function handleForm(event: React.FormEvent) {
     event.preventDefault();
   }
 
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? "hidden" : "unset";
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMenuOpen]);
+
   return (
     <main>
       <div className="bg-bhutan bg-left xl:bg-center h-[100vh] xl:h-[120vh] relative bg-no-repeat bg-cover flex justify-center">
-        <div className="w-full xl:w-[1200px] 2xl:w-[1500px] text-white px-3 xl:px-0">
+        <div className="w-full xl:w-[1200px] 2xl:w-[1500px] text-white px-3 xl:px-0 relative">
           <div className="mt-5 font-jolly flex justify-between items-center text-primary">
-            <h1 className="text-5xl  font-bold hover:scale-105 transition-transform ease-in-out cursor-pointer">
+            <h1 className="text-5xl  font-bold hover:scale-105 transition-transform z-50 ease-in-out cursor-pointer">
               Evergreen Sojourn
             </h1>
             <span className="hidden xl:flex gap-2 text-3xl">
               {siteConfig.getHeaders().map((item, index) => (
-                <p
+                <Link
+                  href={item.href}
                   key={index}
                   className="transition-transform cursor-pointer ease-in-out hover:-translate-y-2"
                 >
                   {item.name}
-                </p>
+                </Link>
               ))}
             </span>
             <span className="hidden xl:flex gap-3 hover:[&>*]:scale-110 [&>*]:transition-all [&>*]:ease-in-out [&>*]:cursor-pointer">
               <Facebook className="" />
               <Instagram />
             </span>
+            <button
+              onClick={() => {
+                setIsMenuOpen((prev) => !prev);
+              }}
+              className="inline xl:hidden z-50"
+            >
+              {isMenuOpen ? (
+                <X className="w-8 h-8" />
+              ) : (
+                <Menu className="w-8 h-8" />
+              )}
+            </button>
+            {isMenuOpen && (
+              <div className="xl:hidden absolute h-screen top-0 left-0 w-full z-40 bg-main grid place-content-center">
+                <span className="flex flex-col gap-3 text-5xl text-center">
+                  {siteConfig.getHeaders().map((item, index) => (
+                    <Link
+                      onClick={() => setIsMenuOpen(false)}
+                      href={item.href}
+                      key={index}
+                      className="transition-transform cursor-pointer ease-in-out hover:-translate-y-2"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </span>
+              </div>
+            )}
           </div>
 
           <div className="mt-[100px] z-10 relative font-jolly flex flex-col items-center gap-6 xl:gap-0 xl:items-end">
@@ -100,17 +140,17 @@ export default function HomePageComponent() {
                 <div className="text-center flex flex-col items-center gap-2">
                   <Smile width={45} height={45} className="text-secondary" />
                   <h3 className="text-base xl:text-lg font-bold">
-                    Years of Experience
+                    Satisfied Clients
                   </h3>
-                  <h2 className="text-xl xl:text-3xl font-extrabold">10</h2>
+                  <h2 className="text-xl xl:text-3xl font-extrabold">1000s</h2>
                 </div>
                 <hr className="border-2 border-secondary h-full" />
                 <div className="text-center flex flex-col items-center gap-2">
                   <Globe width={45} height={45} className="text-secondary" />
                   <h3 className="text-base xl:text-lg font-bold">
-                    Years of Experience
+                    Countries Covered
                   </h3>
-                  <h2 className="text-xl xl:text-3xl font-extrabold">10</h2>
+                  <h2 className="text-xl xl:text-3xl font-extrabold">5</h2>
                 </div>
               </span>
               <p className="text-lg text-center xl:text-start">
@@ -159,7 +199,7 @@ export default function HomePageComponent() {
         </div>
       </div>
 
-      <div className="flex py-[150px]">
+      <div id="about" className="flex py-[150px]">
         <div className="flex-1 flex flex-col xl:flex-row justify-between items-center gap-14 px-5 xl:px-0">
           <Image
             src={icons.office_pic}
@@ -183,11 +223,15 @@ export default function HomePageComponent() {
               updated with our upcoming tours, which we refresh every three
               months to continuously offer exciting experiences.
             </p>
+            <Link href="mailto:evergreensojourn@gmail.com">
+              evergreensojourn@gmail.com
+            </Link>
+            <p>Contact no: +975 77310720</p>
             <p>
               Explore our exclusive gallery tours, featuring past highlights
               such as:
             </p>
-
+            <p>Address: Kelwong Building, 2nd Floor, Wogzin Lam, Thimphu</p>
             <span className="flex justify-evenly mt-5 [&>*]:flex [&>*]:flex-col [&>*]:items-center [&>*]:gap-2">
               <div>
                 <ShieldCheck className="text-secondary w-[35px] h-[35px]" />
@@ -207,11 +251,11 @@ export default function HomePageComponent() {
         <div className="customDiv"></div>
       </div>
 
-      <div className="flex flex-col items-center">
+      <div id="destinations" className="flex flex-col items-center">
         <h1 className="font-jolly text-5xl md:text-7xl text-white">
           DESTINATIONS
         </h1>
-        <div className="my-[50px] w-full flex justify-center border-4 border-secondary border-l-0 border-r-0">
+        <div className="sticky top-0 bg-main z-50 my-[50px] w-full flex justify-center border-4 border-secondary border-l-0 border-r-0">
           <div className="w-full xl:w-[1200px] 2xl:w-[1500px] flex items-center justify-between px-5 md:px-0 md:justify-evenly font-white font-jolly text-4xl py-4 text-white hover:[&>span]:scale-125 [&>span]:cursor-pointer [&>span]:transition-transform">
             <span>Paro</span>
             <span>Thimphu</span>
@@ -229,7 +273,7 @@ export default function HomePageComponent() {
               <div className="grid customSubGrid h-[300px]">
                 <span className="grid place-content-center">
                   <CustomImage
-                    src={icons.bhutan_pic}
+                    src={icons.bhutan_pic_12}
                     dir="left"
                     className="h-fit"
                   />
@@ -254,13 +298,10 @@ export default function HomePageComponent() {
               <div className="grid customSubGrid h-[300px]">
                 <span className="grid place-content-center">
                   <p className="text-base md:text-xl">
-                    <span className="text-primary">
-                      Rich cultural heritage:
-                    </span>{" "}
-                    explore the history, art and architecture of some of the
-                    world&apos;s oldest and most fascinating civilizations in
-                    Asia, from ancient temples in Paro to the majestic
-                    Monasteries in Thimphu.
+                    <span className="text-primary">Natural Beauty:</span>{" "}
+                    Explore the world&apos;s most stunning natural terrains,
+                    from the majestic Himalayas to the vibrant tropical forests
+                    of South Asia, with our agency.
                   </p>
                 </span>
                 <span className="relative flex justify-center items-center">
@@ -269,7 +310,7 @@ export default function HomePageComponent() {
                 </span>
                 <span className="grid place-content-center">
                   <CustomImage
-                    src={icons.bhutan_pic_2}
+                    src={icons.bhutan_pic_7}
                     dir="right"
                     className="h-fit"
                   />
@@ -279,9 +320,10 @@ export default function HomePageComponent() {
               <div className="grid customSubGrid h-[300px]">
                 <span className="grid place-content-center">
                   <CustomImage
-                    src={icons.bhutan_pic}
+                    src={icons.bhutan_pic_13}
                     dir="left"
                     className="h-fit"
+                    childClassName="object-top"
                   />
                 </span>
                 <span className="relative flex justify-center items-center">
@@ -290,13 +332,10 @@ export default function HomePageComponent() {
                 </span>
                 <span className="grid place-content-center">
                   <p className="text-base md:text-xl">
-                    <span className="text-primary">
-                      Rich cultural heritage:
-                    </span>{" "}
-                    explore the history, art and architecture of some of the
-                    world&apos;s oldest and most fascinating civilizations in
-                    Asia, from ancient temples in Paro to the majestic
-                    Monasteries in Thimphu.
+                    <span className="text-primary">Incredible Food:</span> Savor
+                    the rich array of delectable dishes and flavors Bhutan
+                    presents, from the spicy curries of Thimphu to a variety of
+                    other mouthwatering meals
                   </p>
                 </span>
               </div>
@@ -304,13 +343,10 @@ export default function HomePageComponent() {
               <div className="grid customSubGrid h-[300px]">
                 <span className="grid place-content-center">
                   <p className="text-base md:text-xl">
-                    <span className="text-primary">
-                      Rich cultural heritage:
-                    </span>{" "}
-                    explore the history, art and architecture of some of the
-                    world&apos;s oldest and most fascinating civilizations in
-                    Asia, from ancient temples in Paro to the majestic
-                    Monasteries in Thimphu.
+                    <span className="text-primary">Warm Hospitality:</span>{" "}
+                    Experience the warmth and hospitality of Bhutan&apos;s
+                    people, renowned for their kindness and generous spirit, and
+                    create lasting memories on your journey
                   </p>
                 </span>
                 <span className="relative flex justify-center items-center">
@@ -319,9 +355,10 @@ export default function HomePageComponent() {
                 </span>
                 <span className="grid place-content-center">
                   <CustomImage
-                    src={icons.bhutan_pic_2}
+                    src={icons.bhutan_pic_14}
                     dir="right"
                     className="h-fit"
+                    childClassName="object-bottom"
                   />
                 </span>
               </div>
@@ -329,9 +366,10 @@ export default function HomePageComponent() {
               <div className="grid customSubGrid h-[300px]">
                 <span className="grid place-content-center">
                   <CustomImage
-                    src={icons.bhutan_pic_3}
+                    src={icons.bhutan_pic_10}
                     dir="left"
                     className="h-fit"
+                    childClassName="object-bottom"
                   />
                 </span>
                 <span className="relative flex justify-center items-center">
@@ -340,9 +378,7 @@ export default function HomePageComponent() {
                 </span>
                 <span className="grid place-content-center">
                   <p className="text-base md:text-xl">
-                    <span className="text-primary">
-                      Rich cultural heritage:
-                    </span>{" "}
+                    <span className="text-primary">Vibrant Places:</span>{" "}
                     explore the history, art and architecture of some of the
                     world&apos;s oldest and most fascinating civilizations in
                     Asia, from ancient temples in Paro to the majestic
@@ -370,7 +406,10 @@ export default function HomePageComponent() {
       </div>
 
       <div className="flex justify-center pt-[100px] xl:pt-[150px]">
-        <div className="w-full xl:w-[1200px] 2xl:w-[1500px] px-5 xl:px-0 text-white">
+        <div
+          id="exclusive-tours"
+          className="w-full xl:w-[1200px] 2xl:w-[1500px] px-5 xl:px-0 text-white"
+        >
           <h1 className="text-center font-jolly text-6xl xl:text-9xl">
             Exclusive Tour
           </h1>
@@ -386,27 +425,27 @@ export default function HomePageComponent() {
                 className="border-2 z-[10]"
               />
               <CustomImage
-                src={icons.bhutan_pic_2}
+                src={icons.bhutan_pic_4}
                 className="xl:-translate-x-[100px] -translate-y-[70px] border-2 z-[5]"
               />
               <CustomImage
-                src={icons.bhutan_pic}
+                src={icons.bhutan_pic_5}
                 className="xl:-translate-x-[120px] -translate-y-[70px] border-2 z-[6]"
               />
               <CustomImage
-                src={icons.bhutan_pic_3}
+                src={icons.bhutan_pic_6}
                 className="xl:-translate-x-[120px] -translate-y-[70px] border-2 z-[7]"
               />
               <CustomImage
-                src={icons.bhutan_pic_3}
+                src={icons.bhutan_pic_7}
                 className="border-2 z-[3] -translate-y-[120px]"
               />
               <CustomImage
-                src={icons.bhutan_pic_2}
+                src={icons.bhutan_pic_8}
                 className="border-2 z-[4] -translate-y-[120px]"
               />
               <CustomImage
-                src={icons.bhutan_pic}
+                src={icons.bhutan_pic_9}
                 className="border-2 z-[5] -translate-y-[120px]"
               />
             </div>

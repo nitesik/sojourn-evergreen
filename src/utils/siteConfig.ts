@@ -3,15 +3,19 @@ export const siteConfig = {
     const list = [
       {
         name: "About",
+        href: "/#about",
       },
       {
-        name: "Destination",
+        name: "Destinations",
+        href: "/#destinations",
       },
       {
         name: "Exclusive Tour",
+        href: "/#exclusive-tours",
       },
       {
-        name: "Reviews",
+        name: "Packages",
+        href: "/packages",
       },
     ];
 
