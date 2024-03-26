@@ -227,7 +227,10 @@ export default function HomePageComponent() {
               updated with our upcoming tours, which we refresh every three
               months to continuously offer exciting experiences.
             </p>
-            <Link href="mailto:evergreensojourn@gmail.com">
+            <Link
+              href="mailto:evergreensojourn@gmail.com"
+              className="w-full text-center xl:text-start"
+            >
               evergreensojourn@gmail.com
             </Link>
             <p>Contact no: +975 77310720</p>
@@ -560,7 +563,7 @@ export default function HomePageComponent() {
               />
             </label>
             <label className="flex flex-col gap-2">
-              <h3 className="text-lg xl:text-2xl font-bold">
+              <h3 className="text-lg xl:text-2xl font-bold ">
                 Your Email <span className="text-red-400">*</span>
               </h3>
               <input
