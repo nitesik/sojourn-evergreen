@@ -106,7 +106,14 @@ export default function HomePageComponent() {
             )}
           </div>
 
-          <div className="mt-[100px] z-10 relative font-jolly flex flex-col items-center gap-6 xl:gap-0 xl:items-end">
+          <div className="mt-[50px] z-10 relative font-jolly flex flex-col items-center gap-6 xl:gap-0 xl:items-end">
+            <Image
+              src={icons.logo}
+              alt="logo"
+              height={100}
+              width={300}
+              className="min-w-[300px] w-[80%] max-w-[700px]"
+            />
             <h1 className="text-5xl md:text-6xl xl:text-8xl font-extrabold text-center xl:text-end text-primary ">
               Unveiling Bhutan&apos;s Evergreen <br /> Wonders
             </h1>
@@ -138,9 +145,9 @@ export default function HomePageComponent() {
 
       <div className="flex justify-center pt-5">
         <div className="w-full xl:w-[1200px] 2xl:w-[1500px] text-white px-3 xl:px-0">
-          <div className="grid grid-cols-1 xl:grid-cols-2 place-content-between">
-            <div className="flex flex-col gap-10">
-              <span className="flex justify-between flex-shrink-0">
+          <div className="grid grid-cols-1 xl:flex flex-row xl:gap-5 justify-between items-center place-content-between">
+            <div className="flex flex-col gap-10 xl:w-1/2">
+              {/* <span className="flex justify-between flex-shrink-0">
                 <div className="text-center flex flex-col items-center gap-2">
                   <Calendar width={45} height={45} className="text-secondary" />
                   <h3 className="text-base xl:text-lg font-bold">
@@ -164,7 +171,7 @@ export default function HomePageComponent() {
                   </h3>
                   <h2 className="text-xl xl:text-3xl font-extrabold">5</h2>
                 </div>
-              </span>
+              </span> */}
               <p className="text-lg text-center xl:text-start">
                 Explore a myriad of destinations with our tours, each designed
                 to accommodate diverse interests. Whether you crave sun-kissed
@@ -211,7 +218,7 @@ export default function HomePageComponent() {
         </div>
       </div>
 
-      <div id="about" className="flex py-[150px]">
+      <div id="about" className="flex py-[100px] xl:py-[150px]">
         <div className="flex-1 flex flex-col xl:flex-row justify-between items-center gap-14 px-5 xl:px-0">
           <Image
             src={icons.office_pic}
@@ -242,25 +249,11 @@ export default function HomePageComponent() {
               evergreensojourn@gmail.com
             </Link>
             <p>Contact no: +975 77310720</p>
+            <p>Address: Kelwong Building, 2nd Floor, Wogzin Lam, Thimphu</p>
             <p>
               Explore our exclusive gallery tours, featuring past highlights
               such as:
             </p>
-            <p>Address: Kelwong Building, 2nd Floor, Wogzin Lam, Thimphu</p>
-            <span className="flex justify-evenly mt-5 [&>*]:flex [&>*]:flex-col [&>*]:items-center [&>*]:gap-2">
-              <div>
-                <ShieldCheck className="text-secondary w-[35px] h-[35px]" />
-                <h3>Safety</h3>
-              </div>
-              <div>
-                <Clock className="text-secondary w-[35px] h-[35px]" />
-                <h3>Support</h3>
-              </div>
-              <div>
-                <Receipt className="text-secondary w-[35px] h-[35px]" />
-                <h3>Value</h3>
-              </div>
-            </span>
           </div>
         </div>
         <div className="customDiv"></div>
@@ -268,7 +261,7 @@ export default function HomePageComponent() {
 
       <div id="destinations" className="flex flex-col items-center">
         <h1 className="font-jolly text-5xl md:text-7xl text-white">
-          DESTINATIONS
+          EXCLUSIVE TOUR PACKAGES
         </h1>
         <div className="sticky top-0 bg-main z-50 my-[50px] w-full flex justify-center border-4 border-secondary border-l-0 border-r-0">
           <div className="w-full xl:w-[1200px] 2xl:w-[1500px] flex items-center justify-between px-5 md:px-0 md:justify-evenly font-white font-jolly text-4xl py-4 text-white hover:[&>span]:scale-125 [&>span]:cursor-pointer [&>span]:transition-transform">
@@ -428,7 +421,7 @@ export default function HomePageComponent() {
           <h1 className="text-center font-jolly text-6xl xl:text-9xl">
             Exclusive Tour
           </h1>
-          <div className="flex items-center xl:items-start flex-col xl:flex-row xl:[&>div]:w-1/2 mt-[125px] xl:justify-between xl:gap-14">
+          <div className="flex items-center xl:items-start flex-col xl:flex-row xl:[&>div]:w-1/2 mt-[50px] xl:mt-[125px] xl:justify-between xl:gap-14">
             <div className="grid grid-cols-3 gap-y-5 xl:gap-y-0 relative">
               <CustomImage src={icons.bhutan_pic} className="border-2 z-[8]" />
               <CustomImage
@@ -495,6 +488,41 @@ export default function HomePageComponent() {
       </div>
 
       <div className="flex justify-center pt-[100px]">
+        <div className="w-full px-5 xl:px-0 xl:w-[1200px] 2xl:w-[1500px] flex flex-col items-center gap-14 text-white">
+          <h1 className="font-jolly text-6xl xl:text-8xl">FAQs</h1>
+          <div className="w-full xl:w-2/3 grid gap-3">
+            {siteConfig.getFAQs().map((faq, index) => (
+              <div
+                key={index}
+                onClick={() => {
+                  setCurrentFAQ(currentFAQ === index ? null : index);
+                }}
+                className={`${
+                  index !== 0 && "border-t-4 border-secondary pt-5"
+                } flex flex-col cursor-pointer flex-1 pb-5`}
+              >
+                <span className="flex justify-between">
+                  <h3 className="text-2xl ">{faq.question}</h3>
+                  <ChevronRight
+                    className={`${
+                      index === currentFAQ ? "rotate-90" : "rotate-0"
+                    } text-primary`}
+                  />
+                </span>
+                <span
+                  className={`overflow-hidden ${
+                    currentFAQ === index ? "h-[40px]" : "h-0"
+                  } origin-top`}
+                >
+                  <h5 className="text-lg mt-2">{faq.answer}</h5>
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="flex justify-center pt-[50px] xl:pt-[100px]">
         <div className="w-full px-5 xl:px-0 xl:w-[1200px] 2xl:w-[1500px] flex flex-col items-center gap-7 text-black">
           <h1 id="book" className="font-jolly text-6xl xl:text-8xl text-white">
             Book a Tour
@@ -612,41 +640,6 @@ export default function HomePageComponent() {
               Submit
             </button>
           </form>
-        </div>
-      </div>
-
-      <div className="flex justify-center pt-[100px]">
-        <div className="w-full px-5 xl:px-0 xl:w-[1200px] 2xl:w-[1500px] flex flex-col items-center gap-14 text-white">
-          <h1 className="font-jolly text-6xl xl:text-8xl">FAQs</h1>
-          <div className="w-full xl:w-2/3 grid gap-3">
-            {siteConfig.getFAQs().map((faq, index) => (
-              <div
-                key={index}
-                onClick={() => {
-                  setCurrentFAQ(currentFAQ === index ? null : index);
-                }}
-                className={`${
-                  index !== 0 && "border-t-4 border-secondary pt-5"
-                } flex flex-col cursor-pointer flex-1 pb-5`}
-              >
-                <span className="flex justify-between">
-                  <h3 className="text-2xl ">{faq.question}</h3>
-                  <ChevronRight
-                    className={`${
-                      index === currentFAQ ? "rotate-90" : "rotate-0"
-                    } text-primary`}
-                  />
-                </span>
-                <span
-                  className={`overflow-hidden ${
-                    currentFAQ === index ? "h-[40px]" : "h-0"
-                  } origin-top`}
-                >
-                  <h5 className="text-lg mt-2">{faq.question}</h5>
-                </span>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </main>

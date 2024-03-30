@@ -193,7 +193,58 @@ export default function PackageComponent() {
               <h1 className="text-3xl font-extrabold">
                 Bhutan Trekking Sojourn
               </h1>
-              <span></span>
+              <span>
+                <h3 className="text-lg font-bold">
+                  i. Druk Trek Path- 9 Days/8 Nights
+                </h3>
+                <ul className="list-disc pt-2 pl-6 flex flex-col gap-2">
+                  <li>Day 1: Paro Arrival - Acclimatization</li>
+                  <li>Day 2: Paro Sightseeing</li>
+                  <li>Day 3: Transfer from Ta Dzong to Jele Dzong</li>
+                  <li>Day 4: Transfer from Jele Dzong to Tsokam</li>
+                  <li>Day 5: Transfer from Tsokamto Jimilang Tsho</li>
+                  <li>Day 6: Transfer from Jimilang Tsho to Simkotra Tsho</li>
+                  <li>
+                    Day 7: Transfer from Simkotra Tsho to Phajoding - Transfer
+                    to Thimphu
+                  </li>
+                  <li>Day 8: Thimphu Sightseeing</li>
+                  <li>Day 9: Airport drop.</li>
+                </ul>
+              </span>
+
+              <span>
+                <h3 className="text-lg font-bold">
+                  ii. Laya-Gasa Trek- 17 Days/ 16 Nights
+                </h3>
+                <ul className="list-disc pt-2 pl-6 flex flex-col gap-2">
+                  <li>Day 01: Paro Arrival</li>
+                  <li>
+                    Day 02: Acclimatization - Tiger&apos;s Nest Hiking Trip
+                  </li>
+                  <li>Day 03: Drugyal Dzong - Shana</li>
+                  <li>Day 04: Shana - Sio Thangthangkha</li>
+                  <li>Day 05: Sio Thangthangkha - Jangothang</li>
+                  <li>Day 06: Leisure at Jangothang</li>
+                  <li>Day 07: Jangothang - Lingshi</li>
+                  <li>Day 08: Lingshi - Chebisa</li>
+                  <li>Day 09: Chebisa - Shomuthang</li>
+                  <li>Day 10: Shomuthang - Robluthang</li>
+                  <li>Day 11: Robluthang - Lingmithang</li>
+                  <li>Day 12: Lingmithang - Laya</li>
+                  <li>Day 13: Laya - Koena</li>
+                  <li>Day 14: Koena - Gasa</li>
+                  <li>Day 15: Gasa - Punakha</li>
+                  <li>Day 16: Punakha - Thimphu</li>
+                  <li>Day 17: Thimphu - Paro | Departure</li>
+                </ul>
+              </span>
+              <Link
+                href="/#book"
+                className="border-2 font-bold bg-black text-white hover:text-black hover:bg-transparent border-black rounded w-full text-center py-3"
+              >
+                Book Now
+              </Link>
             </div>
           </div>
         </div>

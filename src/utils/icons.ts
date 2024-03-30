@@ -1,3 +1,4 @@
+import logo from "@/assets/logo.svg";
 import bhutan_pic from "@/assets/bhutan1.png";
 import bhutan_pic_2 from "@/assets/bhutan2.jpg";
 import bhutan_pic_3 from "@/assets/bhutan3.jpg";
@@ -14,6 +15,7 @@ import bhutan_pic_13 from "@/assets/bhutan13.jpg";
 import bhutan_pic_14 from "@/assets/bhutan14.jpg";
 
 export const icons = {
+  logo,
   bhutan_pic,
   bhutan_pic_2,
   bhutan_pic_3,
