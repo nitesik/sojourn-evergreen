@@ -85,7 +85,7 @@ export default function PackageComponent() {
                 </ul>
               </span>
               <Link
-                href="/#book"
+                href="/#contact"
                 className="border-2 font-bold bg-black text-white hover:text-black hover:bg-transparent border-black rounded w-full text-center py-3"
               >
                 Book Now
@@ -183,7 +183,7 @@ export default function PackageComponent() {
                 </ul>
               </span>
               <Link
-                href="/#book"
+                href="/#contact"
                 className="border-2 font-bold bg-black text-white hover:text-black hover:bg-transparent border-black rounded w-full text-center py-3"
               >
                 Book Now
@@ -240,7 +240,7 @@ export default function PackageComponent() {
                 </ul>
               </span>
               <Link
-                href="/#book"
+                href="/#contact"
                 className="border-2 font-bold bg-black text-white hover:text-black hover:bg-transparent border-black rounded w-full text-center py-3"
               >
                 Book Now

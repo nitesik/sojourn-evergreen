@@ -125,12 +125,12 @@ export default function HomePageComponent() {
             <button
               onClick={() =>
                 document
-                  .getElementById("book")
+                  .getElementById("contact")
                   ?.scrollIntoView({ behavior: "smooth", block: "start" })
               }
               className="text-3xl border-2 border-primary rounded text-primary px-7 py-3 hover:bg-primary hover:text-white transition-colors"
             >
-              Book Now
+              Contact Us
             </button>
           </div>
         </div>
@@ -144,10 +144,10 @@ export default function HomePageComponent() {
       </div>
 
       <div className="flex justify-center pt-5">
-        <div className="w-full xl:w-[1200px] 2xl:w-[1500px] text-white px-3 xl:px-0">
+        {/* <div className="w-full xl:w-[1200px] 2xl:w-[1500px] text-white px-3 xl:px-0">
           <div className="grid grid-cols-1 xl:flex flex-row xl:gap-5 justify-between items-center place-content-between">
-            <div className="flex flex-col gap-10 xl:w-1/2">
-              {/* <span className="flex justify-between flex-shrink-0">
+             <div className="flex flex-col gap-10 xl:w-1/2">
+              <span className="flex justify-between flex-shrink-0">
                 <div className="text-center flex flex-col items-center gap-2">
                   <Calendar width={45} height={45} className="text-secondary" />
                   <h3 className="text-base xl:text-lg font-bold">
@@ -171,7 +171,7 @@ export default function HomePageComponent() {
                   </h3>
                   <h2 className="text-xl xl:text-3xl font-extrabold">5</h2>
                 </div>
-              </span> */}
+              </span>
               <p className="text-lg text-center xl:text-start">
                 Explore a myriad of destinations with our tours, each designed
                 to accommodate diverse interests. Whether you crave sun-kissed
@@ -190,7 +190,7 @@ export default function HomePageComponent() {
                   <ChevronRight className="" height={35} width={35} />
                 </span>
               </div>
-            </div>
+            </div> 
             <div className="rotate flex md:justify-center xl:justify-end mt-14 xl:mt-0 flex-col-reverse md:flex-row items-center [&>*]:rounded [&>*]:border-4 gap-2 pr-5">
               <Image
                 src={icons.bhutan_pic}
@@ -215,10 +215,10 @@ export default function HomePageComponent() {
               />
             </div>
           </div>
-        </div>
+        </div>*/}
       </div>
 
-      <div id="about" className="flex py-[100px] xl:py-[150px]">
+      <div id="about" className="flex py-[50px]">
         <div className="flex-1 flex flex-col xl:flex-row justify-between items-center gap-14 px-5 xl:px-0">
           <Image
             src={icons.office_pic}
@@ -250,28 +250,62 @@ export default function HomePageComponent() {
             </Link>
             <p>Contact no: +975 77310720</p>
             <p>Address: Kelwong Building, 2nd Floor, Wogzin Lam, Thimphu</p>
-            <p>
-              Explore our exclusive gallery tours, featuring past highlights
-              such as:
-            </p>
           </div>
         </div>
         <div className="customDiv"></div>
       </div>
 
-      <div id="destinations" className="flex flex-col items-center">
-        <h1 className="font-jolly text-5xl md:text-7xl text-white">
-          EXCLUSIVE TOUR PACKAGES
-        </h1>
-        <div className="sticky top-0 bg-main z-50 my-[50px] w-full flex justify-center border-4 border-secondary border-l-0 border-r-0">
-          <div className="w-full xl:w-[1200px] 2xl:w-[1500px] flex items-center justify-between px-5 md:px-0 md:justify-evenly font-white font-jolly text-4xl py-4 text-white hover:[&>span]:scale-125 [&>span]:cursor-pointer [&>span]:transition-transform">
-            <span>Paro</span>
-            <span>Thimphu</span>
-            <span>Haa</span>
-            <span>Gasa</span>
-            <span>Punakha</span>
+      <div id="visa" className="flex justify-center">
+        <div className="w-full xl:w-[1200px] 2xl:w-[1500px] text-white px-3 xl:px-0 grid gap-5">
+          <h1 className="font-jolly text-5xl md:text-7xl text-center">VISA</h1>
+          <div className=" text-xl grid gap-3">
+            <p>
+              All visitors require a visa before travelling to Bhutan (except
+              those from India, Bangladesh and the Maldives, for whom the
+              relevant processes and fees are outlined separately below).
+            </p>
+            <p>
+              As part of the visa application process, you will be required to
+              pay the Sustainable Development Fee (SDF) of US$100 per day (per
+              adult; concessionary rates apply for children). More information
+              about the SDF can be found here.
+            </p>
+            <p>
+              A non-refundable, one-off visa application fee of US$40 is also
+              payable.
+            </p>
+            <p>
+              You can apply online for a visa or permit by completing an
+              application form, or if you&apos;re travelling with a tour
+              operator or staying at a hotel, they can apply on your behalf.{" "}
+            </p>
+            <p>
+              You can apply for yourself and anyone you&apos;re travelling with,
+              provided you have the required information for each person
+              travelling.To apply for a visa online you will need:
+            </p>
+            <ul className="list-disc pl-5 grid gap-1 text-lg">
+              <li>A digital copy of a valid passport</li>
+              <li>A recent digital passport photo</li>
+              <li>Arrival and departure dates </li>
+              <li>Valid travel insurance for the duration of your travel </li>
+              <li>To apply for a visa online you will need:</li>
+              <li>A digital copy of a valid passport</li>
+              <li>A recent digital passport photo</li>
+              <li>Arrival and departure dates </li>
+              <li>
+                Valid travel insurance for the duration of your travel
+              </li>{" "}
+            </ul>
           </div>
         </div>
+      </div>
+
+      <div id="destinations" className="flex flex-col items-center mt-[100px]">
+        {/* <h1 className="font-jolly text-5xl md:text-7xl text-white">
+          EXCLUSIVE TOUR PACKAGES
+        </h1> */}
+        <div className="sticky top-0 bg-main z-50 my-[50px] w-full flex justify-center border-4 border-secondary border-l-0 border-r-0"></div>
         <div className="xl:w-[1200px] 2xl:w-[1500px] grid customGrid px-5 md:px-0 md:pl-5">
           <div className="flex flex-col items-center text-white gap-3">
             <h3 className="text-5xl text-primary font-jolly text-center md:text-start">
@@ -399,12 +433,12 @@ export default function HomePageComponent() {
                 <button
                   onClick={() =>
                     document
-                      .getElementById("book")
+                      .getElementById("contact")
                       ?.scrollIntoView({ behavior: "smooth", block: "start" })
                   }
                   className="text-3xl border-2 border-primary rounded text-primary px-7 py-3 hover:bg-primary hover:text-white transition-colors"
                 >
-                  Book Now
+                  Contact Us
                 </button>
               </div>
             </div>
@@ -413,7 +447,7 @@ export default function HomePageComponent() {
         </div>
       </div>
 
-      <div className="flex justify-center pt-[100px] xl:pt-[150px]">
+      {/* <div className="flex justify-center pt-[100px] xl:pt-[150px]">
         <div
           id="exclusive-tours"
           className="w-full xl:w-[1200px] 2xl:w-[1500px] px-5 xl:px-0 text-white"
@@ -485,7 +519,7 @@ export default function HomePageComponent() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="flex justify-center pt-[100px]">
         <div className="w-full px-5 xl:px-0 xl:w-[1200px] 2xl:w-[1500px] flex flex-col items-center gap-14 text-white">
@@ -524,8 +558,11 @@ export default function HomePageComponent() {
 
       <div className="flex justify-center pt-[50px] xl:pt-[100px]">
         <div className="w-full px-5 xl:px-0 xl:w-[1200px] 2xl:w-[1500px] flex flex-col items-center gap-7 text-black">
-          <h1 id="book" className="font-jolly text-6xl xl:text-8xl text-white">
-            Book a Tour
+          <h1
+            id="contact"
+            className="font-jolly text-6xl xl:text-8xl text-white"
+          >
+            Contact Us
           </h1>
           <form
             onSubmit={handleForm}
@@ -642,6 +679,23 @@ export default function HomePageComponent() {
           </form>
         </div>
       </div>
+
+      <footer className="flex justify-center text-white pt-[50px] my-[50px] text-3xl lg:text-start text-center border-t-4 border-secondary">
+        <div className="w-full px-5 xl:px-0 xl:w-[1200px] 2xl:w-[1500px] flex lg:flex-row flex-col justify-between items-center gap-8 lg:gap-0">
+          <span>© 2024 Evergreen Sojourn</span>
+          <span className="flex gap-5 text-xl lg:flex-row flex-col">
+            {siteConfig.getHeaders().map((item, index) => (
+              <Link
+                href={item.href}
+                key={index}
+                className="transition-transform cursor-pointer ease-in-out hover:-translate-y-2"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </span>
+        </div>
+      </footer>
     </main>
   );
 }

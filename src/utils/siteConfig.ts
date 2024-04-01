@@ -2,16 +2,16 @@ export const siteConfig = {
   getHeaders: () => {
     const list = [
       {
-        name: "About",
+        name: "About Us",
         href: "/#about",
       },
       {
-        name: "Destinations",
-        href: "/#destinations",
+        name: "Visa",
+        href: "/#visa",
       },
       {
-        name: "Exclusive Tour",
-        href: "/#exclusive-tours",
+        name: "Contact Us",
+        href: "/#contact",
       },
       {
         name: "Packages",
