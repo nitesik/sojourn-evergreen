@@ -600,28 +600,30 @@ export default function HomePageComponent() {
                 className="bg-[#E5E5E5] p-3 border-2 rounded outline-none focus:border-secondary"
               />
             </label>
-            <label className="flex flex-col gap-2">
-              <h3 className="text-lg xl:text-2xl font-bold">
-                Date of Arrival <span className="text-red-400">*</span>
-              </h3>
-              <input
-                type="date"
-                required
-                className="bg-[#E5E5E5] p-3 border-2 rounded outline-none focus:border-secondary"
-              />
-            </label>
-            <label className="flex flex-col gap-2">
-              <h3 className="text-lg xl:text-2xl font-bold">
-                Duration of your stay (in days){" "}
-                <span className="text-red-400">*</span>
-              </h3>
-              <input
-                type="number"
-                min={1}
-                required
-                className="bg-[#E5E5E5] p-3 border-2 rounded outline-none focus:border-secondary"
-              />
-            </label>
+            <span className="flex lg:items-center lg:flex-row flex-col lg:justify-between gap-6">
+              <label className="flex flex-col gap-2 flex-1">
+                <h3 className="text-lg xl:text-2xl font-bold">
+                  Date of Arrival <span className="text-red-400">*</span>
+                </h3>
+                <input
+                  type="date"
+                  required
+                  className="bg-[#E5E5E5] p-3 border-2 rounded outline-none focus:border-secondary"
+                />
+              </label>
+              <label className="flex flex-col gap-2 lg:w-1/2">
+                <h3 className="text-lg xl:text-2xl font-bold">
+                  Duration of your stay (in days){" "}
+                  <span className="text-red-400">*</span>
+                </h3>
+                <input
+                  type="number"
+                  min={1}
+                  required
+                  className="bg-[#E5E5E5] p-3 border-2 rounded outline-none focus:border-secondary"
+                />
+              </label>
+            </span>
             <h2 className="text-secondary xl:text-center text-xl xl:text-3xl font-bold">
               Your Personal Informations
             </h2>
@@ -671,7 +673,7 @@ export default function HomePageComponent() {
                 Tell us about your favourite activities and desired
                 destinations.
               </p>
-              <textarea className="bg-[#E5E5E5] p-3 border-2 min-h-[100px] resize-y rounded outline-none focus:border-secondary" />
+              <textarea className="bg-[#E5E5E5] p-3 border-2 min-h-[200px] resize-y rounded outline-none focus:border-secondary" />
             </label>
             <button className="text-3xl border-2 hover:border-secondary hover:bg-white rounded hover:text-secondary px-7 py-3 bg-secondary text-white transition-colors">
               Submit
