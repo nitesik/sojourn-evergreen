@@ -300,8 +300,8 @@ export default function HomePageComponent() {
           </h1>
           <p>
             At EVERGREEN SOJOURN, we believe that travel is not just about
-            exploring new destinations; it's about experiencing the soul of a
-            place, immersing oneself in its culture, and creating lifelong
+            exploring new destinations; it&apos;s about experiencing the soul of
+            a place, immersing oneself in its culture, and creating lifelong
             memories. Nestled in the heart of the majestic Himalayas, Bhutan
             beckons with its pristine landscapes, vibrant traditions, and
             enchanting spirituality. As a leading tours and travel agent based
@@ -314,10 +314,10 @@ export default function HomePageComponent() {
               Our Story
             </h3>
             <p>
-              Founded with a passion for sharing Bhutan's wonders with the
+              Founded with a passion for sharing Bhutan&apos;s wonders with the
               world, EVERGREEN SOJOURN brings together a team of seasoned travel
               experts, local guides, and cultural enthusiasts who are deeply
-              rooted in Bhutan's heritage. With years of experience and a
+              rooted in Bhutan&apos;s heritage. With years of experience and a
               profound love for our homeland, we strive to offer authentic,
               personalized experiences that go beyond the ordinary tourist
               trails.
@@ -348,16 +348,16 @@ export default function HomePageComponent() {
             </p>
             <p>
               Local Expertise: Our team comprises passionate locals who possess
-              an intimate knowledge of Bhutan's culture, history, and hidden
-              gems. From off-the-beaten-path excursions to insider tips, we
-              offer unparalleled insights into the Kingdom of Happiness.
+              an intimate knowledge of Bhutan&apos;s culture, history, and
+              hidden gems. From off-the-beaten-path excursions to insider tips,
+              we offer unparalleled insights into the Kingdom of Happiness.
             </p>
 
             <p>
-              Ethical Tourism: As responsible stewards of Bhutan's heritage, we
-              prioritize ethical tourism practices that minimize our
-              environmental footprint and maximize positive social impact. We
-              partner with sustainable lodges, support community-based
+              Ethical Tourism: As responsible stewards of Bhutan&apos;s
+              heritage, we prioritize ethical tourism practices that minimize
+              our environmental footprint and maximize positive social impact.
+              We partner with sustainable lodges, support community-based
               initiatives, and promote cultural preservation efforts.
             </p>
 
@@ -371,10 +371,11 @@ export default function HomePageComponent() {
             <p>Join Us on a Journey of Discovery.</p>
             <p>
               Whether you dream of hiking through pristine forests, meditating
-              in ancient monasteries, or immersing yourself in Bhutan's colorful
-              festivals, Evergreen Sojourn is your trusted companion every step
-              of the way. Let us be your gateway to Bhutan's hidden treasures -
-              where every moment is a masterpiece waiting to be painted.
+              in ancient monasteries, or immersing yourself in Bhutan&apos;s
+              colorful festivals, Evergreen Sojourn is your trusted companion
+              every step of the way. Let us be your gateway to Bhutan&apos;s
+              hidden treasures - where every moment is a masterpiece waiting to
+              be painted.
             </p>
             <p>
               Contact us today to start planning your bespoke Bhutanese
@@ -652,8 +653,8 @@ export default function HomePageComponent() {
 
       <div className="flex justify-center pt-[100px]">
         <div className="w-full px-5 xl:px-0 xl:w-[1200px] 2xl:w-[1500px] flex flex-col items-center md:items-start text-xl font-semibold gap-2 text-white">
-          {siteConfig.context.split("\n").map((sentence) => (
-            <p>{sentence}</p>
+          {siteConfig.context.split("\n").map((sentence, index) => (
+            <p key={index}>{sentence}</p>
           ))}
         </div>
       </div>
@@ -689,8 +690,8 @@ export default function HomePageComponent() {
                 >
                   {/* <h5 className="text-lg mt-2">{faq.answer}</h5> */}
                   <ul className="list-disc">
-                    {faq.answer.split("\n").map((ans) => (
-                      <li className="list-disc text-base mt-2">
+                    {faq.answer.split("\n").map((ans, index) => (
+                      <li key={index} className="list-disc text-base mt-2">
                         <h5 className="">{ans}</h5>
                       </li>
                     ))}

@@ -87,7 +87,7 @@ export default function PackageComponent() {
                 </ul>
               </span>
               <h2 className="text-lg text-center font-bold pt-2">
-                WHAT'S INCLUDED
+                WHAT&apos;S INCLUDED
               </h2>
               <ul className="list-disc pl-6 flex flex-col gap-2">
                 <li>
@@ -124,7 +124,7 @@ export default function PackageComponent() {
               </ul>
 
               <h2 className="text-lg text-center font-bold pt-2">
-                WHAT'S EXCLUDED
+                WHAT&apos;S EXCLUDED
               </h2>
               <ul className="list-disc pl-6 flex flex-col gap-2">
                 <li>International flights and airport taxes (Visa)</li>
@@ -237,7 +237,7 @@ export default function PackageComponent() {
                 </ul>
               </span>
               <h2 className="text-lg text-center font-bold pt-2">
-                WHAT'S INCLUDED
+                WHAT&apos;S INCLUDED
               </h2>
               <ul className="list-disc pl-6 flex flex-col gap-2">
                 <li>
@@ -274,7 +274,7 @@ export default function PackageComponent() {
               </ul>
 
               <h2 className="text-lg text-center font-bold pt-2">
-                WHAT'S EXCLUDED
+                WHAT&apos;S EXCLUDED
               </h2>
               <ul className="list-disc pl-6 flex flex-col gap-2">
                 <li>International flights and airport taxes (Visa)</li>
@@ -346,7 +346,7 @@ export default function PackageComponent() {
                 </ul>
               </span>
               <h2 className="text-lg text-center font-bold pt-2">
-                WHAT'S INCLUDED
+                WHAT&apos;S INCLUDED
               </h2>
               <ul className="list-disc pl-6 flex flex-col gap-2">
                 <li>
@@ -383,7 +383,7 @@ export default function PackageComponent() {
               </ul>
 
               <h2 className="text-lg text-center font-bold pt-2">
-                WHAT'S EXCLUDED
+                WHAT&apos;S EXCLUDED
               </h2>
               <ul className="list-disc pl-6 flex flex-col gap-2">
                 <li>International flights and airport taxes (Visa)</li>
