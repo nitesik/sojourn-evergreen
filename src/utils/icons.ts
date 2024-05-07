@@ -13,6 +13,9 @@ import bhutan_pic_11 from "@/assets/bhutan11.jpg";
 import bhutan_pic_12 from "@/assets/bhutan12.jpg";
 import bhutan_pic_13 from "@/assets/bhutan13.jpg";
 import bhutan_pic_14 from "@/assets/bhutan14.jpg";
+import council from "@/assets/council.jpg";
+import drukair from "@/assets/drukair.jpg";
+import tashiair from "@/assets/tashiair.jpg";
 
 export const icons = {
   logo,
@@ -32,4 +35,7 @@ export const icons = {
   bhutan_pic_14,
   office_pic:
     "https://images.inc.com/uploaded_files/image/1920x1080/getty_517610514_353435.jpg",
+  council,
+  drukair,
+  tashiair,
 };

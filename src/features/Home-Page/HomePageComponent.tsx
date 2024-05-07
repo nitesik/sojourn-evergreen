@@ -24,6 +24,12 @@ import { CustomImage } from "@/component";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Head from "next/head";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { formDetailsSchema } from "@/zodSchema";
+import { TypeOf, z } from "zod";
+import ErrorMessage from "@/component/errorMessage";
+import { toast } from "react-toastify";
 
 // Evergreen Sojourn
 
@@ -41,6 +47,38 @@ export default function HomePageComponent() {
       document.body.style.overflow = "unset";
     };
   }, [isMenuOpen]);
+
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm<z.infer<typeof formDetailsSchema>>({
+    resolver: zodResolver(formDetailsSchema),
+  });
+
+  const onSubmit = async (data: z.infer<typeof formDetailsSchema>) => {
+    try {
+      const res = await fetch("/api/sendMail", {
+        method: "POST",
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) {
+        toast("Failed to send, please try again later", {
+          type: "error",
+        });
+        return;
+      }
+
+      toast("Email sent successfully", {
+        type: "success",
+      });
+    } catch (error) {
+      toast("Failed to send, please try again later", {
+        type: "error",
+      });
+    }
+  };
 
   return (
     <main>
@@ -143,10 +181,10 @@ export default function HomePageComponent() {
         />
       </div>
 
-      <div className="flex justify-center pt-5">
-        {/* <div className="w-full xl:w-[1200px] 2xl:w-[1500px] text-white px-3 xl:px-0">
+      {/* <div className="flex justify-center pt-5">
+        <div className="w-full xl:w-[1200px] 2xl:w-[1500px] text-white px-3 xl:px-0">
           <div className="grid grid-cols-1 xl:flex flex-row xl:gap-5 justify-between items-center place-content-between">
-             <div className="flex flex-col gap-10 xl:w-1/2">
+            <div className="flex flex-col gap-10 xl:w-1/2">
               <span className="flex justify-between flex-shrink-0">
                 <div className="text-center flex flex-col items-center gap-2">
                   <Calendar width={45} height={45} className="text-secondary" />
@@ -190,7 +228,7 @@ export default function HomePageComponent() {
                   <ChevronRight className="" height={35} width={35} />
                 </span>
               </div>
-            </div> 
+            </div>
             <div className="rotate flex md:justify-center xl:justify-end mt-14 xl:mt-0 flex-col-reverse md:flex-row items-center [&>*]:rounded [&>*]:border-4 gap-2 pr-5">
               <Image
                 src={icons.bhutan_pic}
@@ -215,10 +253,10 @@ export default function HomePageComponent() {
               />
             </div>
           </div>
-        </div>*/}
-      </div>
+        </div>
+      </div> */}
 
-      <div id="about" className="flex py-[50px]">
+      {/* <div id="about" className="flex py-[50px]">
         <div className="flex-1 flex flex-col xl:flex-row justify-between items-center gap-14 px-5 xl:px-0">
           <Image
             src={icons.office_pic}
@@ -253,6 +291,97 @@ export default function HomePageComponent() {
           </div>
         </div>
         <div className="customDiv"></div>
+      </div> */}
+
+      <div id="about" className="flex justify-center py-[50px]">
+        <div className="w-full text-xl xl:w-[1200px] 2xl:w-[1500px] text-white px-3 xl:px-0 grid gap-5">
+          <h1 className="font-jolly text-5xl md:text-7xl text-center">
+            WHY CHOOSE US?
+          </h1>
+          <p>
+            At EVERGREEN SOJOURN, we believe that travel is not just about
+            exploring new destinations; it's about experiencing the soul of a
+            place, immersing oneself in its culture, and creating lifelong
+            memories. Nestled in the heart of the majestic Himalayas, Bhutan
+            beckons with its pristine landscapes, vibrant traditions, and
+            enchanting spirituality. As a leading tours and travel agent based
+            in Bhutan, we are dedicated to unveiling the secrets of this
+            mystical kingdom and curating unforgettable journeys for our
+            cherished guests.
+          </p>
+          <span>
+            <h3 className="text-[40px] mb-5 font-bold text-center font-jolly">
+              Our Story
+            </h3>
+            <p>
+              Founded with a passion for sharing Bhutan's wonders with the
+              world, EVERGREEN SOJOURN brings together a team of seasoned travel
+              experts, local guides, and cultural enthusiasts who are deeply
+              rooted in Bhutan's heritage. With years of experience and a
+              profound love for our homeland, we strive to offer authentic,
+              personalized experiences that go beyond the ordinary tourist
+              trails.
+            </p>
+          </span>
+          <span>
+            <h3 className="text-[40px] mb-5 font-bold text-center font-jolly">
+              Our Mission
+            </h3>
+            <p>
+              At EVERGREEN SOJOURN, our mission is simple yet profound: to
+              foster meaningful connections between travelers and the essence of
+              Bhutan. We are committed to sustainable tourism practices that
+              preserve our natural environment, support local communities, and
+              uphold the principles of Gross National Happiness. Each journey we
+              craft is infused with our values of integrity, respect, and
+              genuine hospitality.
+            </p>
+          </span>
+          <span className="grid gap-5">
+            <h3 className="text-[40px] mt-4 font-bold text-center font-jolly">
+              What Sets Us Apart
+            </h3>
+            <p>
+              Tailored Experiences: We understand that every traveler is unique,
+              which is why we meticulously tailor each itinerary to suit
+              individual preferences, interests, and budgets.
+            </p>
+            <p>
+              Local Expertise: Our team comprises passionate locals who possess
+              an intimate knowledge of Bhutan's culture, history, and hidden
+              gems. From off-the-beaten-path excursions to insider tips, we
+              offer unparalleled insights into the Kingdom of Happiness.
+            </p>
+
+            <p>
+              Ethical Tourism: As responsible stewards of Bhutan's heritage, we
+              prioritize ethical tourism practices that minimize our
+              environmental footprint and maximize positive social impact. We
+              partner with sustainable lodges, support community-based
+              initiatives, and promote cultural preservation efforts.
+            </p>
+
+            <p>
+              24/7 Support: Your comfort and satisfaction are our top
+              priorities. From the moment you inquire about a trip to the time
+              you bid farewell to Bhutan, our dedicated team is available
+              round-the-clock to address your needs and ensure a seamless travel
+              experience.
+            </p>
+            <p>Join Us on a Journey of Discovery.</p>
+            <p>
+              Whether you dream of hiking through pristine forests, meditating
+              in ancient monasteries, or immersing yourself in Bhutan's colorful
+              festivals, Evergreen Sojourn is your trusted companion every step
+              of the way. Let us be your gateway to Bhutan's hidden treasures -
+              where every moment is a masterpiece waiting to be painted.
+            </p>
+            <p>
+              Contact us today to start planning your bespoke Bhutanese
+              adventure!
+            </p>
+          </span>
+        </div>
       </div>
 
       <div id="visa" className="flex justify-center">
@@ -302,9 +431,9 @@ export default function HomePageComponent() {
       </div>
 
       <div id="destinations" className="flex flex-col items-center mt-[100px]">
-        {/* <h1 className="font-jolly text-5xl md:text-7xl text-white">
+        <h1 className="font-jolly text-5xl md:text-7xl text-white">
           EXCLUSIVE TOUR PACKAGES
-        </h1> */}
+        </h1>
         <div className="sticky top-0 bg-main z-50 my-[50px] w-full flex justify-center border-4 border-secondary border-l-0 border-r-0"></div>
         <div className="xl:w-[1200px] 2xl:w-[1500px] grid customGrid px-5 md:px-0 md:pl-5">
           <div className="flex flex-col items-center text-white gap-3">
@@ -522,20 +651,30 @@ export default function HomePageComponent() {
       </div> */}
 
       <div className="flex justify-center pt-[100px]">
+        <div className="w-full px-5 xl:px-0 xl:w-[1200px] 2xl:w-[1500px] flex flex-col items-center md:items-start text-xl font-semibold gap-2 text-white">
+          {siteConfig.context.split("\n").map((sentence) => (
+            <p>{sentence}</p>
+          ))}
+        </div>
+      </div>
+
+      <div className="flex justify-center pt-[100px]">
         <div className="w-full px-5 xl:px-0 xl:w-[1200px] 2xl:w-[1500px] flex flex-col items-center gap-14 text-white">
           <h1 className="font-jolly text-6xl xl:text-8xl">FAQs</h1>
           <div className="w-full xl:w-2/3 grid gap-3">
             {siteConfig.getFAQs().map((faq, index) => (
               <div
                 key={index}
-                onClick={() => {
-                  setCurrentFAQ(currentFAQ === index ? null : index);
-                }}
                 className={`${
                   index !== 0 && "border-t-4 border-secondary pt-5"
-                } flex flex-col cursor-pointer flex-1 pb-5`}
+                } flex flex-col  flex-1 pb-5`}
               >
-                <span className="flex justify-between">
+                <span
+                  onClick={() => {
+                    setCurrentFAQ(currentFAQ === index ? null : index);
+                  }}
+                  className="flex justify-between cursor-pointer"
+                >
                   <h3 className="text-2xl ">{faq.question}</h3>
                   <ChevronRight
                     className={`${
@@ -545,10 +684,17 @@ export default function HomePageComponent() {
                 </span>
                 <span
                   className={`overflow-hidden ${
-                    currentFAQ === index ? "h-[40px]" : "h-0"
+                    currentFAQ === index ? "h-auto" : "h-0"
                   } origin-top`}
                 >
-                  <h5 className="text-lg mt-2">{faq.answer}</h5>
+                  {/* <h5 className="text-lg mt-2">{faq.answer}</h5> */}
+                  <ul className="list-disc">
+                    {faq.answer.split("\n").map((ans) => (
+                      <li className="list-disc text-base mt-2">
+                        <h5 className="">{ans}</h5>
+                      </li>
+                    ))}
+                  </ul>
                 </span>
               </div>
             ))}
@@ -565,7 +711,7 @@ export default function HomePageComponent() {
             Contact Us
           </h1>
           <form
-            onSubmit={handleForm}
+            onSubmit={handleSubmit((e) => onSubmit(e))}
             className="w-full xl:w-2/3 bg-white rounded px-7 py-10 grid gap-6"
           >
             <label className="flex flex-col gap-2">
@@ -573,57 +719,63 @@ export default function HomePageComponent() {
                 Number of Travellers <span className="text-red-400">*</span>
               </h3>
               <input
-                type="number"
-                min={1}
-                required
+                {...register("numberOfTravellers")}
                 className="bg-[#E5E5E5] p-3 border-2 rounded outline-none focus:border-secondary"
               />
+              {errors.numberOfTravellers && (
+                <ErrorMessage>{errors.numberOfTravellers.message}</ErrorMessage>
+              )}
             </label>
             <label className="flex flex-col gap-2">
               <h3 className="text-lg xl:text-2xl font-bold">
                 Adults <span className="text-red-400">*</span>
               </h3>
               <input
-                type="number"
-                min={1}
-                required
+                {...register("adults")}
                 className="bg-[#E5E5E5] p-3 border-2 rounded outline-none focus:border-secondary"
               />
+              {errors.adults && (
+                <ErrorMessage>{errors.adults.message}</ErrorMessage>
+              )}
             </label>
             <label className="flex flex-col gap-2">
               <h3 className="text-lg xl:text-2xl font-bold">
                 Children (2-11 years old)
               </h3>
               <input
-                type="number"
-                min={1}
+                {...register("children")}
                 className="bg-[#E5E5E5] p-3 border-2 rounded outline-none focus:border-secondary"
               />
+              {errors.children && (
+                <ErrorMessage>{errors.children.message}</ErrorMessage>
+              )}
             </label>
-            <span className="flex lg:items-center lg:flex-row flex-col lg:justify-between gap-6">
-              <label className="flex flex-col gap-2 flex-1">
-                <h3 className="text-lg xl:text-2xl font-bold">
-                  Date of Arrival <span className="text-red-400">*</span>
-                </h3>
-                <input
-                  type="date"
-                  required
-                  className="bg-[#E5E5E5] p-3 border-2 rounded outline-none focus:border-secondary"
-                />
-              </label>
-              <label className="flex flex-col gap-2 lg:w-1/2">
-                <h3 className="text-lg xl:text-2xl font-bold">
-                  Duration of your stay (in days){" "}
-                  <span className="text-red-400">*</span>
-                </h3>
-                <input
-                  type="number"
-                  min={1}
-                  required
-                  className="bg-[#E5E5E5] p-3 border-2 rounded outline-none focus:border-secondary"
-                />
-              </label>
-            </span>
+            <label className="grid flex-col gap-2 flex-1">
+              <h3 className="text-lg xl:text-2xl font-bold">
+                Date of Arrival <span className="text-red-400">*</span>
+              </h3>
+              <input
+                type="date"
+                {...register("dateOfArrival")}
+                className="bg-[#E5E5E5] p-3 border-2 rounded outline-none focus:border-secondary"
+              />
+              {errors.dateOfArrival && (
+                <ErrorMessage>{errors.dateOfArrival.message}</ErrorMessage>
+              )}
+            </label>
+            <label className="grid flex-1 flex-col gap-2">
+              <h3 className="text-lg xl:text-2xl font-bold">
+                Duration of your stay (in days){" "}
+                <span className="text-red-400">*</span>
+              </h3>
+              <input
+                {...register("duration")}
+                className="bg-[#E5E5E5] p-3 border-2 rounded outline-none focus:border-secondary"
+              />
+              {errors.duration && (
+                <ErrorMessage>{errors.duration.message}</ErrorMessage>
+              )}
+            </label>
             <h2 className="text-secondary xl:text-center text-xl xl:text-3xl font-bold">
               Your Personal Informations
             </h2>
@@ -632,40 +784,48 @@ export default function HomePageComponent() {
                 Your Name <span className="text-red-400">*</span>
               </h3>
               <input
-                type="text"
-                required
+                {...register("name")}
                 className="bg-[#E5E5E5] p-3 border-2 rounded outline-none focus:border-secondary"
               />
+              {errors.name && (
+                <ErrorMessage>{errors.name.message}</ErrorMessage>
+              )}
             </label>
             <label className="flex flex-col gap-2">
               <h3 className="text-lg xl:text-2xl font-bold ">
                 Your Email <span className="text-red-400">*</span>
               </h3>
               <input
-                type="email"
-                required
+                {...register("email")}
                 className="bg-[#E5E5E5] p-3 border-2 rounded outline-none focus:border-secondary"
               />
+              {errors.email && (
+                <ErrorMessage>{errors.email.message}</ErrorMessage>
+              )}
             </label>
             <label className="flex flex-col gap-2">
               <h3 className="text-lg xl:text-2xl font-bold">
                 Your Phone Number <span className="text-red-400">*</span>
               </h3>
               <input
-                type="tel"
-                required
+                {...register("phoneNumber")}
                 className="bg-[#E5E5E5] p-3 border-2 rounded outline-none focus:border-secondary"
               />
+              {errors.phoneNumber && (
+                <ErrorMessage>{errors.phoneNumber.message}</ErrorMessage>
+              )}
             </label>
             <label className="flex flex-col gap-2">
               <h3 className="text-lg xl:text-2xl font-bold">
                 Your Nationality <span className="text-red-400">*</span>
               </h3>
               <input
-                type="text"
-                required
+                {...register("nationality")}
                 className="bg-[#E5E5E5] p-3 border-2 rounded outline-none focus:border-secondary"
               />
+              {errors.nationality && (
+                <ErrorMessage>{errors.nationality.message}</ErrorMessage>
+              )}
             </label>
             <label className="flex flex-col gap-2">
               <h3 className="text-lg xl:text-2xl font-bold">Your Trip Ideas</h3>
@@ -673,12 +833,33 @@ export default function HomePageComponent() {
                 Tell us about your favourite activities and desired
                 destinations.
               </p>
-              <textarea className="bg-[#E5E5E5] p-3 border-2 min-h-[200px] resize-y rounded outline-none focus:border-secondary" />
+              <textarea
+                {...register("tripIdeas")}
+                className="bg-[#E5E5E5] p-3 border-2 min-h-[200px] resize-y rounded outline-none focus:border-secondary"
+              />
             </label>
             <button className="text-3xl border-2 hover:border-secondary hover:bg-white rounded hover:text-secondary px-7 py-3 bg-secondary text-white transition-colors">
               Submit
             </button>
           </form>
+        </div>
+      </div>
+
+      <div className="flex justify-center py-[50px]">
+        <div className="w-full text-xl xl:w-[1200px] 2xl:w-[1500px] text-white px-3 xl:px-0 grid gap-5">
+          <h1 className="text-center text-[50px] font-bold font-jolly">
+            Our Partners
+          </h1>
+          <span className="flex justify-center md:flex-row flex-col gap-4 items-center [&>img]:rounded mt-3">
+            <Image src={icons.council} alt="council" width={150} height={150} />
+            <Image src={icons.drukair} alt="drukair" width={150} height={150} />
+            <Image
+              src={icons.tashiair}
+              alt="tashiair"
+              width={150}
+              height={150}
+            />
+          </span>
         </div>
       </div>
 

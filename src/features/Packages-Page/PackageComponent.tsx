@@ -1,4 +1,6 @@
+import { icons } from "@/utils/icons";
 import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function PackageComponent() {
@@ -84,6 +86,58 @@ export default function PackageComponent() {
                   <li> Airport Drop to onwards Destination.</li>
                 </ul>
               </span>
+              <h2 className="text-lg text-center font-bold pt-2">
+                WHAT'S INCLUDED
+              </h2>
+              <ul className="list-disc pl-6 flex flex-col gap-2">
+                <li>
+                  Transfers between airports, hotels and scenic spots while
+                  sightseeing by private air conditioned vehicle with a driver
+                  and English-speaking guide
+                </li>
+                <li>
+                  English speaking tour guide will be provided in each city, who
+                  will remain with you throughout your time in that city. He or
+                  she will provide you with the best local knowledge available.
+                </li>
+                <li>
+                  Accommodation with daily breakfast as per detail itinerary
+                </li>
+                <li>Entrance permits (if have)</li>
+                <li>
+                  All meals as specified in the itinerary with authentic local
+                  food. Western food is available (upon request) (B = Breakfast,
+                  L = Lunch, D = Dinner).
+                </li>
+                <li>Boat excursions</li>
+                <li>Bottle of drinking water</li>
+
+                <li>Domestic air tickets</li>
+                <li>English speaking local tour guide in each city</li>
+                <li>
+                  Entrance fees and zone fees for places mentioned in the
+                  itinerary
+                </li>
+                <li>
+                  Transfers and sightseeing by private air-conditioned car
+                </li>
+              </ul>
+
+              <h2 className="text-lg text-center font-bold pt-2">
+                WHAT'S EXCLUDED
+              </h2>
+              <ul className="list-disc pl-6 flex flex-col gap-2">
+                <li>International flights and airport taxes (Visa)</li>
+                <li>Travel insurance</li>
+                <li>Other meals which are not indicated above</li>
+                <li>Surcharge and Compulsory dinners (if any)</li>
+                <li>Beverages in the restaurants where meals are included</li>
+                <li>Gratuities to guides and drivers</li>
+                <li>
+                  Personal and other expenses such as porterage, bar bills and
+                  laundry not stated in the itinerary.
+                </li>
+              </ul>
               <Link
                 href="/#contact"
                 className="border-2 font-bold bg-black text-white hover:text-black hover:bg-transparent border-black rounded w-full text-center py-3"
@@ -182,6 +236,58 @@ export default function PackageComponent() {
                   <li>Airport Drop to onwards Destination</li>
                 </ul>
               </span>
+              <h2 className="text-lg text-center font-bold pt-2">
+                WHAT'S INCLUDED
+              </h2>
+              <ul className="list-disc pl-6 flex flex-col gap-2">
+                <li>
+                  Transfers between airports, hotels and scenic spots while
+                  sightseeing by private air conditioned vehicle with a driver
+                  and English-speaking guide
+                </li>
+                <li>
+                  English speaking tour guide will be provided in each city, who
+                  will remain with you throughout your time in that city. He or
+                  she will provide you with the best local knowledge available.
+                </li>
+                <li>
+                  Accommodation with daily breakfast as per detail itinerary
+                </li>
+                <li>Entrance permits (if have)</li>
+                <li>
+                  All meals as specified in the itinerary with authentic local
+                  food. Western food is available (upon request) (B = Breakfast,
+                  L = Lunch, D = Dinner).
+                </li>
+                <li>Boat excursions</li>
+                <li>Bottle of drinking water</li>
+
+                <li>Domestic air tickets</li>
+                <li>English speaking local tour guide in each city</li>
+                <li>
+                  Entrance fees and zone fees for places mentioned in the
+                  itinerary
+                </li>
+                <li>
+                  Transfers and sightseeing by private air-conditioned car
+                </li>
+              </ul>
+
+              <h2 className="text-lg text-center font-bold pt-2">
+                WHAT'S EXCLUDED
+              </h2>
+              <ul className="list-disc pl-6 flex flex-col gap-2">
+                <li>International flights and airport taxes (Visa)</li>
+                <li>Travel insurance</li>
+                <li>Other meals which are not indicated above</li>
+                <li>Surcharge and Compulsory dinners (if any)</li>
+                <li>Beverages in the restaurants where meals are included</li>
+                <li>Gratuities to guides and drivers</li>
+                <li>
+                  Personal and other expenses such as porterage, bar bills and
+                  laundry not stated in the itinerary.
+                </li>
+              </ul>
               <Link
                 href="/#contact"
                 className="border-2 font-bold bg-black text-white hover:text-black hover:bg-transparent border-black rounded w-full text-center py-3"
@@ -239,6 +345,58 @@ export default function PackageComponent() {
                   <li>Day 17: Thimphu - Paro | Departure</li>
                 </ul>
               </span>
+              <h2 className="text-lg text-center font-bold pt-2">
+                WHAT'S INCLUDED
+              </h2>
+              <ul className="list-disc pl-6 flex flex-col gap-2">
+                <li>
+                  Transfers between airports, hotels and scenic spots while
+                  sightseeing by private air conditioned vehicle with a driver
+                  and English-speaking guide
+                </li>
+                <li>
+                  English speaking tour guide will be provided in each city, who
+                  will remain with you throughout your time in that city. He or
+                  she will provide you with the best local knowledge available.
+                </li>
+                <li>
+                  Accommodation with daily breakfast as per detail itinerary
+                </li>
+                <li>Entrance permits (if have)</li>
+                <li>
+                  All meals as specified in the itinerary with authentic local
+                  food. Western food is available (upon request) (B = Breakfast,
+                  L = Lunch, D = Dinner).
+                </li>
+                <li>Boat excursions</li>
+                <li>Bottle of drinking water</li>
+
+                <li>Domestic air tickets</li>
+                <li>English speaking local tour guide in each city</li>
+                <li>
+                  Entrance fees and zone fees for places mentioned in the
+                  itinerary
+                </li>
+                <li>
+                  Transfers and sightseeing by private air-conditioned car
+                </li>
+              </ul>
+
+              <h2 className="text-lg text-center font-bold pt-2">
+                WHAT'S EXCLUDED
+              </h2>
+              <ul className="list-disc pl-6 flex flex-col gap-2">
+                <li>International flights and airport taxes (Visa)</li>
+                <li>Travel insurance</li>
+                <li>Other meals which are not indicated above</li>
+                <li>Surcharge and Compulsory dinners (if any)</li>
+                <li>Beverages in the restaurants where meals are included</li>
+                <li>Gratuities to guides and drivers</li>
+                <li>
+                  Personal and other expenses such as porterage, bar bills and
+                  laundry not stated in the itinerary.
+                </li>
+              </ul>
               <Link
                 href="/#contact"
                 className="border-2 font-bold bg-black text-white hover:text-black hover:bg-transparent border-black rounded w-full text-center py-3"
@@ -247,6 +405,23 @@ export default function PackageComponent() {
               </Link>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="flex justify-center py-[50px]">
+        <div className="w-full text-xl xl:w-[1200px] 2xl:w-[1500px] text-white px-3 xl:px-0 grid gap-5">
+          <h1 className="text-center text-[50px] font-bold font-jolly">
+            Our Partners
+          </h1>
+          <span className="flex justify-center md:flex-row flex-col gap-4 items-center [&>img]:rounded mt-3">
+            <Image src={icons.council} alt="council" width={150} height={150} />
+            <Image src={icons.drukair} alt="drukair" width={150} height={150} />
+            <Image
+              src={icons.tashiair}
+              alt="tashiair"
+              width={150}
+              height={150}
+            />
+          </span>
         </div>
       </div>
     </main>
