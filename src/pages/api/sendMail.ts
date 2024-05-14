@@ -8,7 +8,6 @@ export default async function POST(req: NextApiRequest, res: NextApiResponse) {
   try {
     const { body } = req;
     const formDetails = formDetailsSchema.parse(JSON.parse(body));
-    console.log(formDetails.dateOfArrival.toDateString());
 
     const { error } = await resend.emails.send({
       from: "clients@evergreensojourn.com",
@@ -35,7 +34,9 @@ export default async function POST(req: NextApiRequest, res: NextApiResponse) {
       </div>`,
     });
 
-    if (error) console.log(error);
+    if (error) {
+      throw new Error(error.message);
+    }
 
     res.status(200).json({
       message: "Success",
